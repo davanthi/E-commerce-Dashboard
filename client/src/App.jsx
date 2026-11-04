@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar.jsx"
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Navbar from "./components/Navbar.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductList from "./components/ProductList.jsx";
 import AddProduct from "./components/AddProduct.jsx";
-import UpdateProduct from "./components/UpdateProduct.jsx"
+import UpdateProduct from "./components/UpdateProduct.jsx";
 import Profile from "./components/Profile.jsx";
 import Register from "./components/Register.jsx";
-import Login from "./components/Login.jsx"
-import {ConfigProvider} from "antd";
+import Login from "./components/Login.jsx";
+import { ConfigProvider } from "antd";
+import PrivateComponent from "./components/PrivateComponent.jsx";
+import GuestComponent from "./components/GuestComponent.jsx";
 const theme = {
   token: {
     colorPrimary: "#0f6e6a",
@@ -27,12 +29,16 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<ProductList />} />
-            <Route path="/add-product" element={<AddProduct />} />
-            <Route path="/update-product" element={<UpdateProduct />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route element={<PrivateComponent />}>
+              <Route path="/" element={<ProductList />} />
+              <Route path="/add-product" element={<AddProduct />} />
+              <Route path="/update-product" element={<UpdateProduct />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
+            <Route element={<GuestComponent />}>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </div>
@@ -41,14 +47,4 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
 

@@ -23,6 +23,11 @@
   font-weight: 700;
   letter-spacing: 0.04em;
 }
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
 .site-header{
   position:sticky;
   top:0;
@@ -56,4 +61,58 @@
   padding: 8px 14px;
    border-radius: 999px;
    transition: 0.2s ease;
+}
+.nav-ul li a:hover{
+  background:var(--pepper-deep);
+  color: var(--teal-dark);
+}
+.brand-copy strong {
+  font-family: Fraunces, serif;
+  font-size: 1.05rem;
+}
+
+.brand-copy span {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+.auth-shell{
+  min-height: calc(100vh - 170px);
+  display:grid;
+  place-items: center;
+  padding: 24px 16px 48px;
+}
+.auth-card{
+  width:min(400px,100%);
+  padding:36px 32px;
+}
+.page-hero,
+.auth-card,
+.form-card,
+.table-card,
+.empty-state {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.auth-card .ant-form
+ {
+  margin-top: 20px;
+}
+.auth-card h1{
+  font-family: Fraunces, serif;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}
+.auth-card p{
+  color:var(--ink-muted);
+  margin-top:8px;
+}
+.auth-switch{
+  margin-top:18px;
+  color:var(--ink-muted)
+}
+.auth-switch a{
+  color:var(--teal);
+  font-weight:600;
 }
