@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Form, Input, Button } from "antd";
 import { Link } from "react-router-dom";
 import { registerUser } from "../calls/authCalls.js";
