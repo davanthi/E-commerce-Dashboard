@@ -5,8 +5,6 @@ const api = axios.create({
 });
 export const registerUser= async(userInfo)=>{
   const response=await api.post("/api/auth/register", userInfo);
- 
-  // localStorage.setItem("user", JSON.stringify(response.data.user));
   return response.data;
 }
 export const loginUser= async(userInfo)=>{

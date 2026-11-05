@@ -1,46 +1,36 @@
-import React ,{useEffect}from 'react';
-import {Form,Input,Button} from "antd";
-import { Link } from 'react-router-dom';
-import {registerUser} from "../calls/authCalls.js";
-import {useNavigate} from "react-router-dom"
+import React, { useEffect } from "react";
+import { Form, Input, Button } from "antd";
+import { Link } from "react-router-dom";
+import { registerUser } from "../calls/authCalls.js";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
- // const [userData, setUserData] = React.useState(localStorage.getItem("user"));
- const navigate=useNavigate();
- const handleRegister=async(values)=>{
-  try {
-    const result = await registerUser(values);
-    console.log(result, "registered user");
+  
+  const navigate = useNavigate();
+  const handleRegister = async (values) => {
+    try {
+      const result = await registerUser(values);
 
-    if (result.success) {
-      navigate("/login");
+      if (result.success) {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
+  };
 
- }
- 
-
- // useEffect(()=>{
- //     const handleStorageChange=()=>{
- //      setUserData(localStorage.getItem("user"))
- //      if(userData){
- //       navigate("/")
- //      }
- //     }
- //     window.addEventListener("storage", handleStorageChange);
- //     return ()=>{
- //      window.removeEventListener("storage", handleStorageChange);
- //     }
- //    },[])
-
+  
   return (
     <div className="auth-shell">
       <div className="auth-card">
-        <h1>Create your desk</h1>
-        <p>Register to start tracking students, contacts, and records.</p>
-        <Form name="basic" layout="vertical" autoComplete="off" onFinish={handleRegister}>
+        <h1>Create your Cart</h1>
+        <p>Register to start tracking products, contacts, and records.</p>
+        <Form
+          name="basic"
+          layout="vertical"
+          autoComplete="off"
+          onFinish={handleRegister}
+        >
           <Form.Item
             label="UserName"
             name="username"
@@ -77,4 +67,4 @@ function Register() {
   );
 }
 
-export default Register
+export default Register;

@@ -1,10 +1,9 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { Form, Input, Button } from 'antd';
 import { Link,useNavigate } from 'react-router-dom';
 import {loginUser} from "../calls/authCalls.js"
 
 function Login() {
- const [userData, setUserData] = React.useState(localStorage.getItem("user"));
  const navigate=useNavigate();
  const handleLogin=async(values)=>{
   try {
