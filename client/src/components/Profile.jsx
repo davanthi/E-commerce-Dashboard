@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react';
 import { Card, Avatar, Descriptions, Button } from "antd";
-import { UserOutlined, EditOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 
 function Profile() {
  const [userData,setUserData]=React.useState(localStorage.getItem("user"))
@@ -26,10 +26,6 @@ function Profile() {
 
           <h2>{user.username}</h2>
           <p>{user.email}</p>
-
-          <Button type="primary" icon={<EditOutlined />}>
-            Edit Profile
-          </Button>
         </div>
 
         <div className="profile-details">
