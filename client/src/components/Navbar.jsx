@@ -6,6 +6,7 @@ import { Link,useNavigate } from 'react-router-dom';
 function Navbar() {
  const[userData,setUserData]=React.useState(localStorage.getItem("user"))
  const navigate=useNavigate();
+ const userName = userData ? JSON.parse(userData).username : "";
  useEffect(() => {
    const handleAuthChange = () => {
      setUserData(localStorage.getItem("user"));
@@ -48,7 +49,10 @@ function Navbar() {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/login" onClick={logout}>
+            <span className="user-chip">{userName}</span>
+          </li>
+          <li>
+            <Link className="logout-link" to="/login" onClick={logout}>
               Logout
             </Link>
           </li>
@@ -59,7 +63,9 @@ function Navbar() {
             <Link to="/register">Sign Up</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link className="logout-link" to="/login">
+              Login
+            </Link>
           </li>
         </ul>
       )}

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -11,6 +10,7 @@ import Login from "./components/Login.jsx";
 import { ConfigProvider } from "antd";
 import PrivateComponent from "./components/PrivateComponent.jsx";
 import GuestComponent from "./components/GuestComponent.jsx";
+import Footer from "./components/Footer.jsx";
 const theme = {
   token: {
     colorPrimary: "#0f6e6a",
@@ -41,6 +41,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        <Footer />
       </div>
     </ConfigProvider>
   );

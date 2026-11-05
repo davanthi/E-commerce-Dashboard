@@ -4,14 +4,17 @@ dotEnv.config();
 const dbConfig=require("./db/config.js");
 dbConfig.connectDB();
 const userRouter=require("./routes/user.route.js");
+
 const cors=require("cors");
+const productRouter=require("./routes/product.route.js");
 
 const app=express();
 app.use(express.json());
 app.use(cors({
  origin:"http://localhost:5174"
 }))
-app.use("/api/auth",userRouter)
+app.use("/api/auth",userRouter);
+app.use("/api/products",productRouter);
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
